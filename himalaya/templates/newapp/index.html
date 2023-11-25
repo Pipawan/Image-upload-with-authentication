@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>himalaya</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-lg btn-success">Upload</button>
+        </form>
+
+        {% if obj %}
+        <h3>Succesfully uploaded: {{ obj.caption }}</h3>
+        <img src="{{ obj.image.url }}" alt="image" class="img-thumbnail">
+        {% endif %}
+
+        <hr>
+
+        {% for x in img %}
+        {% if forloop.first %}
+        <div class="row ">
+            {% endif %}
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="text-center mt-2">
+                    <img src="{{ x.image.url }}" height="70%" width="70%" class="img-thumbnail" alt="...">
+                    <h2 class="text-center">{{ x.caption }}</h2>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class=row>
+            {% endif %}
+            {% if forloop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>

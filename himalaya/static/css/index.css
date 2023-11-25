@@ -1,0 +1,39 @@
+/* Style the container for the photos */
+.container {
+    margin: 20px;
+  }
+  
+  /* Style the row for the photos */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the column for each photo */
+  .col-lg-4,
+  .col-md-4,
+  .col-12 {
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Style the image thumbnail */
+  .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the caption for each photo */
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-center h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  
